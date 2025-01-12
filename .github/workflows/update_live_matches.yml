@@ -2,7 +2,7 @@ name: Update Live Matches
 
 on:
   schedule:
-    - cron: '*/15 * * * *'  # Каждые 15 минут
+    - cron: '* * * * *'  # Запуск каждую минуту
   workflow_dispatch:  # Позволяет запускать вручную
 
 jobs:
@@ -16,14 +16,14 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.8'  # Или укажите нужную версию
-
-      - name: Display Python version
-        run: python --version
+          python-version: '3.8'  # Укажите нужную версию Python
 
       - name: Install dependencies
         run: |
           pip install requests beautifulsoup4 pandas openpyxl
 
       - name: Run the script
-        run: python live_odds.py  # Замените на имя вашего скрипта
+        run: python .github/workflows/live_odds.py  # Замените на путь к вашему скрипту
+
+       
+        
