@@ -16,12 +16,14 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.8'  # Выберите вашу версию Python
+          python-version: '3.8'  # Или укажите нужную версию
+
+      - name: Display Python version
+        run: python --version
 
       - name: Install dependencies
         run: |
           pip install requests beautifulsoup4 pandas openpyxl
 
       - name: Run the script
-        run: python total_live_test.py  # Замените на имя вашего скрипта
-
+        run: python live_odds.py  # Замените на имя вашего скрипта
