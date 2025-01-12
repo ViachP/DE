@@ -26,7 +26,7 @@ else:
 
 # Список URL-адресов
 urls = [
-    'https://www.marathonbet.by/su/live/popular'
+    'https://www.marathonbet.by/su/live/26418'
 ]
 
 data = []
