@@ -27,4 +27,11 @@ jobs:
 
       - name: Run the script
         run: python .github/workflows/live_odds.py  # Замените на имя вашего скрипта
-       
+      - name: Commit changes
+        run: |
+          git config --local user.email "your_email@example.com"
+          git config --local user.name "your_name"
+          git add live.xlsx
+          git commit -m "Обновлен live.xlsx" || echo "Нет изменений для коммита"
+          git push
+          
