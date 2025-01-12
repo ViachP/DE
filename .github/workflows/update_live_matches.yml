@@ -26,5 +26,5 @@ jobs:
           pip install requests beautifulsoup4 pandas openpyxl
 
       - name: Run the script
-        run: python live_odds.py  # Замените на имя вашего скрипта
+        run: python .github/workflows/live_odds.py  # Замените на имя вашего скрипта
        
