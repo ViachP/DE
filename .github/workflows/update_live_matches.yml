@@ -2,7 +2,7 @@ name: Update Live Matches
 
 on:
   schedule:
-    - cron: '*/* * * * *'  # Каждые 15 минут
+    - cron: '*/5 * * * *'  # Запуск каждые 5 минут
   workflow_dispatch:  # Позволяет запускать вручную
 
 jobs:
