@@ -6,6 +6,12 @@ import datetime
 import timeit
 import logging
 
+# Вывести текущий рабочий каталог
+print("Текущий рабочий каталог:", os.getcwd())
+
+# Вывести содержимое текущей директории
+print("Содержимое текущей директории:", os.listdir(os.getcwd()))
+
 # Настройка логирования
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -158,3 +164,9 @@ def main():
 
 if __name__ == "__main__":
     main()
+# Проверка, создан ли файл
+if os.path.exists(excel_file_path):
+    print("Файл live.xlsx успешно создан.")
+else:
+    print("Файл live.xlsx не был создан.")
+    
