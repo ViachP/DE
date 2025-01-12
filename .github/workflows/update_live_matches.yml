@@ -27,14 +27,29 @@ jobs:
 
       - name: Run the script
         run: python .github/workflows/live_odds.py  # Замените на имя вашего скрипта
+
+      - name: Check if live.xlsx exists
+        run: |
+          echo "Текущий рабочий каталог:"
+          pwd
+          echo "Содержимое текущего каталога:"
+          ls -al
+          if [ -f live.xlsx ]; then
+            echo "Файл live.xlsx существует."
+          else
+            echo "Файл live.xlsx не найден."
+            exit 1  # Прерываем работу, если файл не найден
+          fi
+
       - name: Commit changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config --local user.email "your_email@example.com"
-          git config --local user.name "your_name"
-          git add live.xlsx
+          git config --local user.email "your_email@example.com"  # Укажите свою почту
+          git config --local user.name "Your Name"  # Укажите свое имя
+          git add live.xlsx  # Убедитесь, что указано правильное имя файла
           git commit -m "Обновлен live.xlsx" || echo "Нет изменений для коммита"
           git push https://x-access-token:${GITHUB_TOKEN}@github.com/ViachP/DE.git
-          
+
+     
           
