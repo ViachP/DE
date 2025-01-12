@@ -1,1 +1,27 @@
+name: Update Live Matches
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'  # Каждые 15 минут
+  workflow_dispatch:  # Позволяет запускать вручную
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'  # Выберите вашу версию Python
+
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4 pandas openpyxl
+
+      - name: Run the script
+        run: python total_live_test.py  # Замените на имя вашего скрипта
 
