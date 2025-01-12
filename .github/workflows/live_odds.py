@@ -10,7 +10,7 @@ import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Путь к файлу Excel
-excel_file_path = 'live.xlsx'
+excel_file_path = os.path.join(os.getcwd(), 'live.xlsx')
 
 # Загрузка существующего файла, если он есть
 if os.path.exists(excel_file_path):
