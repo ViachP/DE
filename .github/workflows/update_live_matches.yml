@@ -32,13 +32,14 @@ jobs:
         run: |
           echo "Текущий рабочий каталог:"
           pwd
-          echo "Содержимое текущего каталога:"
+          echo "Содержимое текущего каталога перед коммитом:"
           ls -al
+          # Проверка на наличие файла live.xlsx
           if [ -f live.xlsx ]; then
             echo "Файл live.xlsx существует."
           else
             echo "Файл live.xlsx не найден."
-            exit 1  # Прерываем работу, если файл не найден
+            exit 1  # Прерываем выполнение, если файл не найден
           fi
 
       - name: Commit changes
@@ -48,8 +49,9 @@ jobs:
           git config --local user.email "your_email@example.com"  # Укажите свою почту
           git config --local user.name "Your Name"  # Укажите свое имя
           git add live.xlsx  # Убедитесь, что указано правильное имя файла
-          git commit -m "Обновлен live.xlsx" || echo "Нет изменений для коммита"
+          git commit -m "Обновлен live.xlsx" || echo "Нет изменений для коммита" 
           git push https://x-access-token:${GITHUB_TOKEN}@github.com/ViachP/DE.git
+
 
      
           
